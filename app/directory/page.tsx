@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Search, Grid3x3 as Grid3X3, Repeat, HardDrive, Smartphone, Bot, Calculator, GraduationCap, Cpu, Cloud, Users, Lock, Layers, ChartLine as LineChart, Brain, ChartBar as BarChart2, Image, Rocket, Dice5, Trophy, CreditCard, Newspaper } from 'lucide-react';
+import SmartSearch from '@/components/smart-search';
 
 const iconMap: Record<string, React.ElementType> = {
   'repeat': Repeat,
@@ -86,6 +87,15 @@ export default async function DirectoryPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* AI Smart Search */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-4">
+            <Brain className="h-5 w-5 text-emerald-500" />
+            <h2 className="text-lg font-semibold text-slate-900">Ask AI</h2>
+          </div>
+          <SmartSearch />
+        </div>
+
         {/* Categories Grid */}
         <div className="mb-16">
           <div className="flex items-center justify-between">

@@ -14,6 +14,7 @@ import {
   ThumbsUp,
   ThumbsDown,
 } from 'lucide-react';
+import AIComparisonSummary from '@/components/ai-comparison-summary';
 
 async function getComparison(slug: string) {
   // Parse slug like "binance-vs-coinbase"
@@ -316,6 +317,11 @@ export default async function ComparePage({ params }: { params: { slug: string }
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* AI Verdict */}
+        <div className="mt-8">
+          <AIComparisonSummary slug={params.slug} />
         </div>
 
         {/* CTA */}

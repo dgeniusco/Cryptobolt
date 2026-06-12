@@ -560,6 +560,35 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* AI Advisor CTA */}
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 py-12 sm:px-12 lg:px-16 ring-1 ring-slate-700">
+            <div className="absolute right-0 top-0 opacity-5">
+              <Brain className="h-64 w-64" />
+            </div>
+            <div className="relative">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 ring-1 ring-emerald-500/20">
+                <Sparkles className="h-4 w-4" />
+                AI-Powered
+              </div>
+              <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                Not sure which crypto product is right for you?
+              </h2>
+              <p className="mt-4 max-w-xl text-slate-400">
+                Our AI advisor analyzes your experience, goals, and budget to recommend the best crypto products from our directory.
+              </p>
+              <Link href="/advisor">
+                <Button size="lg" className="mt-6 bg-emerald-500 hover:bg-emerald-600">
+                  <Brain className="mr-2 h-5 w-5" />
+                  Try AI Advisor
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Recently Added */}
       <section className="bg-slate-50 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
