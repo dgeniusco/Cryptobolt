@@ -400,11 +400,9 @@ export default async function BestOfPage({ params }: { params: { slug: string } 
                 <h3 className="font-semibold text-slate-900 mb-4">Related Lists</h3>
                 <div className="space-y-3">
                   <Link href="/best-crypto-exchanges" className="block text-sm text-emerald-600 hover:underline">
-                    Best Crypto Exchanges 2024
-                  </Link>
+                    Best Crypto Exchanges 2026                  </Link>
                   <Link href="/best-hardware-wallets" className="block text-sm text-emerald-600 hover:underline">
-                    Best Hardware Wallets 2024
-                  </Link>
+                    Best Hardware Wallets 2026                  </Link>
                   <Link href="/best-crypto-tax-software" className="block text-sm text-emerald-600 hover:underline">
                     Best Crypto Tax Software
                   </Link>
@@ -419,7 +417,7 @@ export default async function BestOfPage({ params }: { params: { slug: string } 
       <div className="bg-white border-t">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
-            How We Choose the Best {list.title.replace('Best ', '').replace(' 2024', '')}
+            How We Choose the Best {list.title.replace('Best ', '').replace(' 2026', '')}
           </h2>
           <div className="prose prose-slate max-w-none">
             <p className="text-slate-600">

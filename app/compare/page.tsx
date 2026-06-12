@@ -3,13 +3,15 @@ import { supabase, type Comparison, type Company, type Category } from '@/lib/su
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, GitCompare, Repeat, HardDrive, Calculator, Bot } from 'lucide-react';
+import { ArrowRight, GitCompare, Repeat, HardDrive, Calculator, Bot, Cloud, Layers } from 'lucide-react';
 
 const categoryComparisons = [
-  { category: 'Crypto Exchanges', slug: 'crypto-exchanges', icon: Repeat, comparisons: ['binance-vs-coinbase'] },
-  { category: 'Hardware Wallets', slug: 'hardware-wallets', icon: HardDrive, comparisons: ['ledger-nano-x-vs-trezor-model-t'] },
-  { category: 'Crypto Tax Software', slug: 'crypto-tax-software', icon: Calculator, comparisons: ['cointracking-vs-koinly'] },
-  { category: 'Trading Bots', slug: 'trading-bots', icon: Bot, comparisons: [] },
+  { category: 'Crypto Exchanges', slug: 'crypto-exchanges', icon: Repeat, comparisons: ['binance-vs-coinbase', 'kraken-vs-coinbase', 'binance-vs-kraken', 'bybit-vs-okx'] },
+  { category: 'Hardware Wallets', slug: 'hardware-wallets', icon: HardDrive, comparisons: ['ledger-nano-x-vs-trezor-model-t', 'ledger-nano-x-vs-trezor-safe-3', 'ledger-nano-x-vs-keystone-pro-3'] },
+  { category: 'Crypto Tax Software', slug: 'crypto-tax-software', icon: Calculator, comparisons: ['koinly-vs-cointracking', 'koinly-vs-coinledger'] },
+  { category: 'Trading Bots', slug: 'trading-bots', icon: Bot, comparisons: ['3commas-vs-pionex'] },
+  { category: 'Cloud Mining', slug: 'cloud-mining', icon: Cloud, comparisons: ['nicehash-vs-compass-mining'] },
+  { category: 'DeFi Tools', slug: 'defi-tools', icon: Layers, comparisons: ['uniswap-vs-dydx'] },
 ];
 
 export default async function CompareIndexPage() {

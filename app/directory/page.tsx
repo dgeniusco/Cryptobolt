@@ -31,22 +31,16 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 async function getAllData() {
-  const [categoriesResult, companiesResult] = await Promise.all([
+  const [categoriesResult, companiesResult, countsResult] = await Promise.all([
     supabase.from('categories').select('*').eq('is_active', true).order('order_index'),
-    supabase.from('companies').select('id, name, slug, logo_url, rating, review_count, is_featured, category_id, is_verified').limit(20),
+    supabase.from('companies').select('id, name, slug, logo_url, rating, review_count, is_featured, category_id, is_verified, created_at').order('created_at', { ascending: false }),
+    supabase.rpc('get_category_counts'),
   ]);
 
-  // Get company count per category
-  const { data: categoryCounts } = await supabase
-    .rpc('get_category_counts') as { data: null };
-
-  // Fallback: count manually
   const categoryCountMap: Record<string, number> = {};
-  if (companiesResult.data) {
-    for (const company of companiesResult.data) {
-      if (company.category_id) {
-        categoryCountMap[company.category_id] = (categoryCountMap[company.category_id] || 0) + 1;
-      }
+  if (countsResult.data) {
+    for (const row of countsResult.data as { category_id: string; count: number }[]) {
+      categoryCountMap[row.category_id] = row.count;
     }
   }
 
@@ -68,7 +62,7 @@ export default async function DirectoryPage() {
           <div className="text-center">
             <h1 className="text-4xl font-bold sm:text-5xl">Company Directory</h1>
             <p className="mt-4 text-lg text-slate-300">
-              Browse {companies.length}+ companies across {categories.length} categories
+              Browse {Object.values(categoryCounts).reduce((a: number, b: number) => a + b, 0)} companies across {categories.length} categories
             </p>
           </div>
 
@@ -107,8 +101,7 @@ export default async function DirectoryPage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {categories.map((category) => {
               const Icon = category.icon ? iconMap[category.icon] || Grid3X3 : Grid3X3;
-              // Get company count for this category - will show placeholder count since we haven't fetched all
-              const companyCount = categoryCounts[category.id] || 1;
+              const companyCount = categoryCounts[category.id] || 0;
 
               return (
                 <Link
@@ -123,7 +116,7 @@ export default async function DirectoryPage() {
                     <h3 className="font-semibold text-slate-900 group-hover:text-emerald-600">
                       {category.name}
                     </h3>
-                    <p className="text-sm text-slate-500">{companyCount}+ companies</p>
+                    <p className="text-sm text-slate-500">{companyCount} {companyCount === 1 ? 'company' : 'companies'}</p>
                   </div>
                 </Link>
               );

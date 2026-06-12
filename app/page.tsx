@@ -532,7 +532,7 @@ export default async function HomePage() {
             >
               <div className="absolute right-0 top-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-white/10" />
               <Repeat className="mb-4 h-10 w-10" />
-              <h3 className="text-xl font-bold">Best Crypto Exchanges 2024</h3>
+              <h3 className="text-xl font-bold">Best Crypto Exchanges 2026</h3>
               <p className="mt-2 text-emerald-100">Ranked by fees, security, and features</p>
               <ArrowRight className="mt-4 h-5 w-5" />
             </Link>
@@ -542,7 +542,7 @@ export default async function HomePage() {
             >
               <div className="absolute right-0 top-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-white/5" />
               <HardDrive className="mb-4 h-10 w-10" />
-              <h3 className="text-xl font-bold">Best Hardware Wallets 2024</h3>
+              <h3 className="text-xl font-bold">Best Hardware Wallets 2026</h3>
               <p className="mt-2 text-slate-300">Secure your crypto properly</p>
               <ArrowRight className="mt-4 h-5 w-5" />
             </Link>
