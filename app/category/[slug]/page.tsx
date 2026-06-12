@@ -11,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Star, ArrowLeft, ExternalLink, MapPin, DollarSign } from 'lucide-react';
 
 type FilterParams = {
@@ -259,27 +258,27 @@ export default async function CategoryPage({
 
               <div>
                 <h3 className="font-semibold text-slate-900">Filters</h3>
-                <div className="mt-3 space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Checkbox
-                      id="affiliate"
-                      checked={filters.affiliate === 'true'}
-                      className="data-[state=checked]:bg-emerald-500"
-                    />
-                    <label htmlFor="affiliate" className="text-sm text-slate-600">
-                      Affiliate Program
-                    </label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Checkbox
-                      id="verified"
-                      checked={filters.verified === 'true'}
-                      className="data-[state=checked]:bg-emerald-500"
-                    />
-                    <label htmlFor="verified" className="text-sm text-slate-600">
-                      Verified Only
-                    </label>
-                  </div>
+                <div className="mt-3 space-y-2">
+                  <Link
+                    href={`/category/${category.slug}?affiliate=true${selectedSubcategory ? `&subcategory=${selectedSubcategory.slug}` : ''}${filters.pricing && filters.pricing !== 'all' ? `&pricing=${filters.pricing}` : ''}`}
+                    className={`block rounded-md px-3 py-2 text-sm ${
+                      filters.affiliate === 'true'
+                        ? 'bg-emerald-50 text-emerald-700'
+                        : 'text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    Affiliate Program
+                  </Link>
+                  <Link
+                    href={`/category/${category.slug}?verified=true${selectedSubcategory ? `&subcategory=${selectedSubcategory.slug}` : ''}${filters.pricing && filters.pricing !== 'all' ? `&pricing=${filters.pricing}` : ''}`}
+                    className={`block rounded-md px-3 py-2 text-sm ${
+                      filters.verified === 'true'
+                        ? 'bg-emerald-50 text-emerald-700'
+                        : 'text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    Verified Only
+                  </Link>
                 </div>
               </div>
             </div>
@@ -387,16 +386,15 @@ export default async function CategoryPage({
                       </div>
                       <div className="flex items-center gap-2 sm:flex-col">
                         {company.website_url && (
-                          <Button
-                            size="sm"
-                            className="bg-emerald-500 hover:bg-emerald-600"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              window.open(company.website_url!, '_blank');
-                            }}
-                          >
-                            <ExternalLink className="mr-1 h-4 w-4" />
-                            Visit
+                          <Button asChild size="sm" className="bg-emerald-500 hover:bg-emerald-600">
+                            <a
+                              href={company.affiliate_available ? `/go/${company.slug}` : company.website_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="mr-1 h-4 w-4" />
+                              Visit
+                            </a>
                           </Button>
                         )}
                       </div>

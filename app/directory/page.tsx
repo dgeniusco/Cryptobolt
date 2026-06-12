@@ -106,7 +106,7 @@ export default async function DirectoryPage() {
               return (
                 <Link
                   key={category.id}
-                  href={`/directory/${category.slug}`}
+                  href={`/category/${category.slug}`}
                   className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 transition-all hover:border-emerald-500 hover:shadow-lg"
                 >
                   <div className="rounded-lg bg-gradient-to-br from-emerald-50 to-teal-50 p-3 text-emerald-600">
