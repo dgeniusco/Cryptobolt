@@ -257,12 +257,12 @@ export default async function BestOfPage({ params }: { params: { slug: string } 
                           {item.company.website_url && (
                             <Button asChild size="sm" className="bg-emerald-500 hover:bg-emerald-600 hidden sm:inline-flex">
                               <a
-                                href={item.company.affiliate_available && item.company.affiliate_url
-                                  ? item.company.affiliate_url
+                                href={item.company.affiliate_available
+                                  ? `/go/${item.company.slug}`
                                   : item.company.website_url
                                 }
                                 target="_blank"
-                                rel="noopener noreferrer sponsored"
+                                rel="noopener noreferrer"
                               >
                                 {item.company.affiliate_available ? 'Get Started' : 'Visit'}
                                 <ExternalLink className="ml-2 h-4 w-4" />
@@ -327,12 +327,12 @@ export default async function BestOfPage({ params }: { params: { slug: string } 
                           {item.company.website_url && (
                             <Button asChild className="w-full bg-emerald-500 hover:bg-emerald-600">
                               <a
-                                href={item.company.affiliate_available && item.company.affiliate_url
-                                  ? item.company.affiliate_url
+                                href={item.company.affiliate_available
+                                  ? `/go/${item.company.slug}`
                                   : item.company.website_url
                                 }
                                 target="_blank"
-                                rel="noopener noreferrer sponsored"
+                                rel="noopener noreferrer"
                               >
                                 {item.company.affiliate_available ? 'Get Started' : 'Visit Website'}
                                 <ExternalLink className="ml-2 h-4 w-4" />

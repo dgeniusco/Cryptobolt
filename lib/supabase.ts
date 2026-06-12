@@ -106,3 +106,20 @@ export type BestOfList = {
   created_at: string;
   updated_at: string;
 };
+
+export type AffiliateClick = {
+  id: string;
+  company_id: string;
+  company_slug: string;
+  affiliate_url: string;
+  referrer: string | null;
+  user_agent: string | null;
+  clicked_at: string;
+};
+
+export type AffiliateClickAggregation = {
+  company_slug: string;
+  company_name: string;
+  total_clicks: number;
+  clicks_today: number;
+};

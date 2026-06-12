@@ -187,7 +187,7 @@ export default async function CompanyPage({ params }: { params: { slug: string }
               )}
               {company.affiliate_available && company.affiliate_url && (
                 <Button asChild variant="outline" className="border-emerald-500 text-emerald-600 hover:bg-emerald-50">
-                  <a href={company.affiliate_url} target="_blank" rel="noopener noreferrer sponsored">
+                  <a href={`/go/${company.slug}`} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Get Started
                   </a>
@@ -418,8 +418,10 @@ export default async function CompanyPage({ params }: { params: { slug: string }
                         Commission: {company.affiliate_commission}
                       </p>
                     )}
-                    <Button size="sm" className="mt-3 w-full bg-emerald-600 hover:bg-emerald-700">
-                      Join Program
+                    <Button asChild size="sm" className="mt-3 w-full bg-emerald-600 hover:bg-emerald-700">
+                      <a href={`/go/${company.slug}`} target="_blank" rel="noopener noreferrer">
+                        Join Program
+                      </a>
                     </Button>
                   </div>
                 )}
